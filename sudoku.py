@@ -49,26 +49,21 @@ class Sudoku:
 
         # bound(inclusive, exclusive)
         '''
+        def get_bound(n):
+            bound = None
+            match n % 3:
+                case 0:
+                    bound = (n, n + 3)
+                case 1:
+                    bound = (n - 1, n + 2)
+                case 2:
+                    bound = (n - 2, n + 1)
+            return bound
 
-        x_bound, y_bound = None, None
-        if(x % 3 == 0):
-            x_bound = (x, x + 3)
-        elif(x % 3 == 1):
-            x_bound = (x - 1, x + 2)
-        else:
-            x_bound = (x - 2, x + 1)
-        if(y % 3 == 0):
-            y_bound = (y, y + 3)
-        elif(y % 3 == 1):
-            y_bound = (y - 1, y + 2)
-        else:
-            y_bound = (y - 2, y + 1)
+
+        x_bound, y_bound = get_bound(x), get_bound(y)
 
         vals = [self.get_row(i)[x_bound[0]:x_bound[1]] for i in range(y_bound[0], y_bound[1])]
 
+        print(vals)
         return vals
-
-        # print(vals)
-            
-        # print(x_bound[0], x_bound[1])
-        # print(y_bound[0], y_bound[1])
