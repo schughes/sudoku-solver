@@ -1,13 +1,27 @@
 from sudoku import Sudoku
 
 def main(filename):
-    puzzle = Sudoku(filename)
 
-    puzzle.get_square(1,8)
+
+    puzzle = Sudoku(filename)
     print('\n')
-    puzzle.get_square(6, 5)
+    for row in puzzle.rows:
+        print(row)
+    # print(puzzle.rows)
+    # print('\n')
+    puzzle.solve()
     print('\n')
-    puzzle.get_square(2, 0)
+
+    for row in puzzle.rows:
+        print(row)
+
+    # print(puzzle.mutable_rows)
+
+    # puzzle.get_square(1,8)
+    # print('\n')
+    # puzzle.get_square(6, 5)
+    # print('\n')
+    # puzzle.get_square(2, 0)
 
     # assert puzzle.get_square(0,0) == puzzle.get_square(1,0) == puzzle.get_square(2,0)
     # print('\n')
